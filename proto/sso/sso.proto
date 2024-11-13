@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "kto.sso.v1;ssov1";
+
+service Auth{
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
+}
+
+message RegisterRequest{
+  string Email = 1;
+  string Password = 2;
+}
+
+message RegisterResponse{
+  int64 UserID = 1;
+}
+
+message LoginRequest{
+  string Email = 1;
+  string Password = 2;
+  string AppID = 3;
+}
+
+message LoginResponse{
+  string Token = 1;
+}
+
+message IsAdminRequest{
+  int64 UserID = 1;
+}
+
+message IsAdminResponse{
+  bool IsAdmin = 1;
+};
