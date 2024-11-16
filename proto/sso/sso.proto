@@ -22,7 +22,7 @@ message RegisterResponse{
 message LoginRequest{
   string Email = 1;
   string Password = 2;
-  string AppID = 3;
+  int64 AppID = 3;
 }
 
 message LoginResponse{

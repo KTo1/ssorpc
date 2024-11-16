@@ -7,7 +7,15 @@ import (
 
 func (request *LoginRequest) Validate() error {
 	if request.GetEmail() == "" {
-		return status.Error(codes.InvalidArgument, "Email is required")
+		return status.Error(codes.InvalidArgument, "email is required")
+	}
+
+	if request.GetPassword() == "" {
+		return status.Error(codes.InvalidArgument, "password is required")
+	}
+
+	if request.GetAppID() == "" {
+		return status.Error(codes.InvalidArgument, "app ID is required")
 	}
 
 	return nil
