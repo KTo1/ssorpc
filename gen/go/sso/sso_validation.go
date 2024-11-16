@@ -14,7 +14,7 @@ func (request *LoginRequest) Validate() error {
 		return status.Error(codes.InvalidArgument, "password is required")
 	}
 
-	if request.GetAppID() == "" {
+	if request.GetAppID() == 0 {
 		return status.Error(codes.InvalidArgument, "app ID is required")
 	}
 
